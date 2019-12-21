@@ -1,4 +1,7 @@
 <?php session_start();
+if ($_SESSION['name'] == null) {
+    header("Location:/index.php");
+}
 $lang = [
     'ru' => "Русский",
     'en' => "English",

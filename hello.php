@@ -1,4 +1,8 @@
 <?php session_start();
+
+if ($_SESSION['name'] == null) {
+    header("Location:/index.php");
+}
 $vocab = [
     'ru' => ['Main' => "Главное меню", 'Hello' => "Здравствуйте!", 'button1' => "Изменить", 'button2' => "Выйти"],
     'en' => ['Main' => "Main menu", 'Hello' => "Hello!", 'button1' => "Change", 'button2' => "Logout"],

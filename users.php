@@ -1,5 +1,7 @@
-<?php
-session_start();
+<?php session_start();
+if ($_SESSION['name'] !== null) {
+    header("Location:/index.php");
+}
 $users = [
     ['login' => 'Vasisualiy', 'password' => '12345', 'lang' => 'ru'],
     ['login' => 'Afanasiy', 'password' => '54321', 'lang' => 'en'],
@@ -18,6 +20,7 @@ foreach ($users as $value) {
     if ($value['login'] == $_POST['login'] && $value['password'] == $_POST['password']) {
         $_SESSION['login'] = $_POST['login'];
         $_SESSION['lang'] = $value['lang'];
+		$_SESSION['name'] = $value['login'];
         break;
     }
 }
